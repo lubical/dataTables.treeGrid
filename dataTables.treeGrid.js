@@ -148,7 +148,7 @@
                 td.removeClass('treegrid-control-open').addClass('treegrid-control');
                 td.html('').append(icon);
 
-                resetTreeGridRows(parentTrId);
+                resetTreeGridRows(dataTable, parentTrId);
                 resetEvenOddClass(dataTable);
 
                 select && setTimeout(function () {
@@ -228,7 +228,7 @@
             trs.each(function (index, tr) {
                 if(typeof($(tr).attr("parent-index"))=="undefined"){
                     var trid = $(tr).attr('id');
-                    resetTreeGridRows(trid);
+                    resetTreeGridRows(dataTable, trid);
                 }
             });
         },
@@ -256,13 +256,13 @@
      * 收缩展开处理
      * @param trId
      */
-    function resetTreeGridRows (trId) {
+    function resetTreeGridRows(dataTable, trId) {
         var subRows = treeGridRows[trId];
         if (subRows && subRows.length) {
             subRows.forEach(function (node) {
                 var subTrId = $(node).attr('id');
                 if (treeGridRows[subTrId]) {
-                    resetTreeGridRows(subTrId);
+                    resetTreeGridRows(dataTable, subTrId);
                 }
                 dataTable.row($(node)).remove();
                 $(node).remove();
@@ -401,7 +401,8 @@
     };
 
     function getTrId() {
-        return 'tr-' + Date.now();
+
+        return 'tr-' + Date.now() + '-' + Math.random().toString().substr(3, 10);
     }
 
     function getParentTr(target) {
