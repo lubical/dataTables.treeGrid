@@ -7,7 +7,8 @@
 
 **[插件地址：https://github.com/lhmyy521125/dataTables.treeGrid](https://github.com/lhmyy521125/dataTables.treeGrid)**
 # 更新日志
-2020-10-13: resetTreeGridRows 会提示datatable变量缺失问题解决；多次刷新页面时有时，多层数据中父子层级id相同导致收缩失败的问题解决；
+2020-10-13: resetTreeGridRows 会提示datatable变量缺失问题解决；多次刷新页面时有时，多层数据中父子层级id相同导致收缩失败的问题解决； 
+
 2020-4-16：千呼万唤始出来,很多朋友再CSDN博客上反馈了插件的一些问题，博主的公司因为已经很少用dataTable（都使用VUE啦）所以很少去弄这款插件了，今天呢总算抽时间完善了这款插件，更新内容如下：
 - 1、解决dataTable reload() / draw() 时树形失效问题
 - 2、采用新的初始化方式，可以外部调用 expandAll() / collapseAll() 方法
